@@ -40,12 +40,16 @@ USER_DEFINED_APPS = [
 ]
 THIRD_PARTY_APPS = [
     "rest_framework",
+    "corsheaders",
 ]
 INSTALLED_APPS = BUILT_IN_APPS + USER_DEFINED_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    
+    "corsheaders.middleware.CorsMiddleware",
+    
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -127,5 +131,10 @@ STATIC_ROOT = BASE_DIR / "static"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://zen-tesla-95b383.netlify.app"
+]
 
 
